@@ -6,7 +6,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
-import DraftsIcon from "@material-ui/icons/Drafts";
 import SendIcon from "@material-ui/icons/Send";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
@@ -49,44 +48,48 @@ class NestedList extends React.Component {
     return (
       <div>
         <List component="nav" classes={{ root: classes.root }}>
-          <ListItem
-            onClick={this.props.toggleDrawer(false)}
-            onKeyDown={this.props.toggleDrawer(false)}
-            component={props => <Link to="/chat" {...props} />}
-          >
-            <ListItemIcon className={classes.boja}>
-              <SendIcon />
-            </ListItemIcon>
-            <ListItemText inset disableTypography>
-              {" "}
-              <Typography
-                className={classes.boja}
-                style={{ fontSize: "1.8rem" }}
+          {auth && (
+            <Fragment>
+              <ListItem
+                onClick={this.props.toggleDrawer(false)}
+                onKeyDown={this.props.toggleDrawer(false)}
+                component={props => <Link to="/chat" {...props} />}
               >
-                {" "}
-                Chat{" "}
-              </Typography>{" "}
-            </ListItemText>
-          </ListItem>
-          <ListItem
-            onClick={this.props.toggleDrawer(false)}
-            onKeyDown={this.props.toggleDrawer(false)}
-            component={props => <Link to="/poruke" {...props} />}
-          >
-            <ListItemIcon className={classes.boja}>
-              <SendIcon />
-            </ListItemIcon>
-            <ListItemText inset disableTypography>
-              {" "}
-              <Typography
-                className={classes.boja}
-                style={{ fontSize: "1.8rem" }}
+                <ListItemIcon className={classes.boja}>
+                  <SendIcon />
+                </ListItemIcon>
+                <ListItemText inset disableTypography>
+                  {" "}
+                  <Typography
+                    className={classes.boja}
+                    style={{ fontSize: "1.8rem" }}
+                  >
+                    {" "}
+                    Chat{" "}
+                  </Typography>{" "}
+                </ListItemText>
+              </ListItem>
+              <ListItem
+                onClick={this.props.toggleDrawer(false)}
+                onKeyDown={this.props.toggleDrawer(false)}
+                component={props => <Link to="/poruke" {...props} />}
               >
-                {" "}
-                Poruke{" "}
-              </Typography>{" "}
-            </ListItemText>
-          </ListItem>
+                <ListItemIcon className={classes.boja}>
+                  <SendIcon />
+                </ListItemIcon>
+                <ListItemText inset disableTypography>
+                  {" "}
+                  <Typography
+                    className={classes.boja}
+                    style={{ fontSize: "1.8rem" }}
+                  >
+                    {" "}
+                    Poruke{" "}
+                  </Typography>{" "}
+                </ListItemText>
+              </ListItem>
+            </Fragment>
+          )}
 
           <ListItem button onClick={this.handleClick}>
             <ListItemIcon className={classes.boja}>

@@ -54,6 +54,11 @@ class NovaObjava extends React.Component {
         text: nextProps.objava.objava
       });
     }
+    if (nextProps.objava.naslovSlika) {
+      this.setState({
+        naslovnaSlika: nextProps.objava.naslovSlika
+      });
+    }
   }
   imageHandler = () => {
     const input = document.createElement("input");
